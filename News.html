@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;News | Xinyi Wang&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;display=swap" rel="stylesheet"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--green: #16a34a; --green-light: #dcfce7; --green-mid: #bbf7d0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--text: #111827; --muted: #6b7280; --light: #f9fafb;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--border: #e5e7eb; --white: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.05);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--nav-h: 60px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--font: 'Avenir Next', 'Avenir', 'Nunito', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: var(--font);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.7;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding-top: var(--nav-h);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* NAVBAR */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.navbar {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: fixed; top: 0; left: 0; right: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: var(--nav-h);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.96);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(10px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex; align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 0 48px; z-index: 1000;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.navbar-logo {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.05rem; font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text); text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: -0.01em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.navbar-logo span { color: var(--green); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.navbar-links { display: flex; align-items: center; gap: 2px; list-style: none; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.navbar-links a {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 6px 14px; border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.88rem; font-weight: 500;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted); text-decoration: none; transition: all 0.18s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.navbar-links a:hover { color: var(--text); background: var(--light); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.navbar-links a.active { color: var(--green); font-weight: 600; background: var(--green-light); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 12px 24px; flex-direction: column; gap: 2px; z-index: 999; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.mobile-menu.open { display: flex; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.mobile-menu a { padding: 10px 12px; border-radius: 8px; font-size: 0.9rem; font-weight: 500; color: var(--muted); text-decoration: none; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.mobile-menu a:hover { background: var(--light); color: var(--text); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* PAGE */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.page-wrap {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 760px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 56px 40px 80px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.page-title {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: -0.03em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.page-subtitle {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 300;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 40px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.divider { height: 1px; background: var(--border); margin-bottom: 32px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* NEWS ITEMS */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.news-item {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 18px 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: flex-start;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.news-item:last-child { border-bottom: none; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.news-date {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-width: 88px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.78rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding-top: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.03em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.news-content { flex: 1; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.news-text {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.92rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 400;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.65;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.badge {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 1px 9px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.7rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.05em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-right: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>vertical-align: middle;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.badge-paper { background: var(--green-light); color: var(--green); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.badge-award { background: #fef9c3; color: #a16207; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.badge-talk<span class="Apple-converted-space">  </span>{ background: #dbeafe; color: #1d4ed8; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.badge-update{ background: var(--light); color: var(--muted); border: 1px solid var(--border); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-top: 1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 24px 48px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 300;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 660px) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.navbar { padding: 0 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.navbar-links { display: none; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hamburger { display: flex; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.page-wrap { padding: 40px 20px 60px; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.news-item { flex-direction: column; gap: 6px; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.news-date { min-width: auto; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>footer { padding: 24px 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;nav class="navbar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a class="navbar-logo" href="index.html"&gt;Xinyi &lt;span&gt;Wang&lt;/span&gt;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;ul class="navbar-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;li&gt;&lt;a href="news.html" class="active"&gt;News&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;li&gt;&lt;a href="publications.html"&gt;Publications&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;li&gt;&lt;a href="education.html"&gt;Education&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button class="hamburger" onclick="toggleMenu()" aria-label="Menu"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/button&gt;</p>
+<p class="p1">&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="mobile-menu" id="mobileMenu"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="index.html"<span class="Apple-converted-space">        </span>onclick="closeMenu()"&gt;Home&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="news.html" <span class="Apple-converted-space">        </span>onclick="closeMenu()"&gt;News&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="publications.html" onclick="closeMenu()"&gt;Publications&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="education.html"<span class="Apple-converted-space">    </span>onclick="closeMenu()"&gt;Education&lt;/a&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="page-wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1 class="page-title"&gt;News&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;p class="page-subtitle"&gt;Recent updates, papers, talks, and announcements&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="divider"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- 💡 Add/edit news items below --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="news-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="news-date"&gt;May 2025&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="news-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="news-text"&gt;&lt;span class="badge badge-paper"&gt;Paper&lt;/span&gt;Paper accepted at [Conference Name]!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="news-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="news-date"&gt;Jan 2025&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="news-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="news-text"&gt;&lt;span class="badge badge-paper"&gt;Paper&lt;/span&gt;New working paper submitted on tobacco control messaging.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="news-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="news-date"&gt;Sep 2024&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="news-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="news-text"&gt;&lt;span class="badge badge-update"&gt;Update&lt;/span&gt;Started third year of Ph.D. at UPenn Annenberg.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="news-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="news-date"&gt;Jun 2024&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="news-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="news-text"&gt;&lt;span class="badge badge-talk"&gt;Talk&lt;/span&gt;Presented at [Conference Name] in [City].&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="news-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="news-date"&gt;Mar 2024&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="news-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="news-text"&gt;&lt;span class="badge badge-award"&gt;Award&lt;/span&gt;Received [Award or Fellowship Name].&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;footer&gt;© 2025 Xinyi Wang · Annenberg School for Communication, University of Pennsylvania&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>function closeMenu()<span class="Apple-converted-space">  </span>{ document.getElementById('mobileMenu').classList.remove('open'); }</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>

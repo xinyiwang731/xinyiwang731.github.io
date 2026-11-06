@@ -1,500 +1,494 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Xinyi Wang | UPenn Annenberg</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
-  <style>
-    /* ─────────────── RESET & VARIABLES ─────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --primary:    #2563eb;
-      --secondary:  #7c3aed;
-      --gradient:   linear-gradient(135deg, #2563eb, #7c3aed);
-      --bg:         #f1f5f9;
-      --card:       #ffffff;
-      --text:       #1e293b;
-      --muted:      #64748b;
-      --border:     #e2e8f0;
-      --sidebar-w:  280px;
-      --radius:     16px;
-      --shadow:     0 1px 3px rgba(0,0,0,0.07), 0 6px 20px rgba(0,0,0,0.06);
-    }
-
-    /* ─────────────── BODY / DOT-GRID BG ─────────────── */
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
-      background-size: 26px 26px;
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    /* ─────────────── LAYOUT ─────────────── */
-    .page {
-      display: flex;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 48px 24px;
-      gap: 36px;
-    }
-
-    /* ─────────────── SIDEBAR ─────────────── */
-    .sidebar {
-      width: var(--sidebar-w);
-      flex-shrink: 0;
-      position: sticky;
-      top: 40px;
-      height: fit-content;
-    }
-
-    .sidebar-card {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 32px 24px;
-      box-shadow: var(--shadow);
-      text-align: center;
-    }
-
-    /* Avatar — swap the placeholder div for an <img> when you have a photo */
-    .avatar-placeholder {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: var(--gradient);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: #fff;
-      margin: 0 auto 18px;
-    }
-    /* Uncomment and use this instead once you have a photo:
-    .avatar {
-      width: 120px; height: 120px;
-      border-radius: 50%; object-fit: cover;
-      border: 3px solid #fff;
-      box-shadow: 0 0 0 3px var(--primary);
-      margin: 0 auto 18px; display: block;
-    } */
-
-    .sidebar h1 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 6px;
-    }
-
-    .sidebar .role {
-      font-size: 0.83rem;
-      color: var(--muted);
-      margin-bottom: 3px;
-    }
-
-    .sidebar .inst {
-      font-size: 0.80rem;
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .divider { height: 1px; background: var(--border); margin: 14px 0; }
-
-    /* Contact rows */
-    .contact-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin-bottom: 8px;
-      text-align: left;
-    }
-    .contact-row i { width: 16px; color: var(--primary); }
-    .contact-row a { color: var(--muted); text-decoration: none; }
-    .contact-row a:hover { color: var(--primary); }
-
-    /* Social icons */
-    .socials {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin: 16px 0;
-    }
-    .socials a {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      background: var(--bg);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .socials a:hover {
-      background: var(--gradient);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-
-    /* CV button */
-    .cv-btn {
-      display: block;
-      padding: 10px;
-      border-radius: 10px;
-      background: var(--gradient);
-      color: #fff;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-    .cv-btn:hover { opacity: 0.88; transform: translateY(-1px); }
-
-    /* ─────────────── MAIN CONTENT ─────────────── */
-    .main { flex: 1; min-width: 0; }
-
-    .section {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 32px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .section-header {
-      margin-bottom: 20px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      display: inline-block;
-    }
-
-    /* ── About ── */
-    .about-text { font-size: 0.95rem; color: var(--text); }
-    .about-text p { margin-bottom: 10px; }
-    .about-text p:last-child { margin-bottom: 0; }
-
-    /* ── Interest tags ── */
-    .tags { display: flex; flex-wrap: wrap; gap: 10px; }
-    .tag {
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.81rem;
-      font-weight: 500;
-      background: linear-gradient(135deg, rgba(37,99,235,0.08), rgba(124,58,237,0.08));
-      color: var(--primary);
-      border: 1px solid rgba(37,99,235,0.18);
-    }
-
-    /* ── News ── */
-    .news-item {
-      display: flex;
-      gap: 16px;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.9rem;
-    }
-    .news-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .news-date {
-      min-width: 90px;
-      font-size: 0.78rem;
-      color: var(--muted);
-      padding-top: 2px;
-    }
-
-    /* ── Publications ── */
-    .pub-item {
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .pub-item:first-child { padding-top: 0; }
-    .pub-item:last-child { border-bottom: none; padding-bottom: 0; }
-
-    .pub-title  { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
-    .pub-authors{ font-size: 0.84rem; color: var(--muted); margin-bottom: 3px; }
-    .pub-venue  { font-size: 0.84rem; color: var(--primary); font-style: italic; margin-bottom: 10px; }
-
-    .pub-links a {
-      font-size: 0.76rem;
-      padding: 3px 10px;
-      border-radius: 5px;
-      border: 1px solid var(--primary);
-      color: var(--primary);
-      text-decoration: none;
-      margin-right: 6px;
-      transition: all 0.18s;
-    }
-    .pub-links a:hover { background: var(--primary); color: #fff; }
-
-    /* ── Education ── */
-    .edu-item { display: flex; gap: 16px; margin-bottom: 20px; }
-    .edu-item:last-child { margin-bottom: 0; }
-
-    .edu-icon {
-      width: 44px; height: 44px; flex-shrink: 0;
-      border-radius: 10px;
-      background: linear-gradient(135deg, rgba(37,99,235,0.1), rgba(124,58,237,0.1));
-      display: flex; align-items: center; justify-content: center;
-      color: var(--primary);
-      font-size: 1.05rem;
-    }
-
-    .edu-info h4 { font-size: 0.93rem; font-weight: 600; margin-bottom: 2px; }
-    .edu-info p  { font-size: 0.83rem; color: var(--muted); margin-bottom: 2px; }
-    .edu-year    { font-size: 0.78rem; color: var(--primary); font-weight: 500; }
-
-    /* ─────────────── BACK TO TOP ─────────────── */
-    #backToTop {
-      position: fixed;
-      bottom: 28px; right: 28px;
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      background: var(--gradient);
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 14px rgba(37,99,235,0.4);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s, transform 0.2s;
-    }
-    #backToTop.show { opacity: 1; pointer-events: all; }
-    #backToTop:hover { transform: translateY(-3px); }
-
-    /* ─────────────── RESPONSIVE ─────────────── */
-    @media (max-width: 780px) {
-      .page { flex-direction: column; padding: 20px 16px; }
-      .sidebar { width: 100%; position: static; }
-    }
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
   </style>
 </head>
 <body>
-
-<div class="page">
-
-  <!-- ════════════════ SIDEBAR ════════════════ -->
-  <aside class="sidebar">
-    <div class="sidebar-card">
-
-      <!-- 💡 Replace this div with:
-           <img src="assets/img/avatar.jpg" class="avatar" alt="Xinyi Wang">
-           once you add your photo to assets/img/ -->
-      <div class="avatar-placeholder">XW</div>
-
-      <h1>Xinyi Wang</h1>
-      <p class="role">Ph.D. Candidate in Communication</p>
-      <p class="inst">Annenberg School · University of Pennsylvania</p>
-
-      <div class="divider"></div>
-
-      <div class="contact-row">
-        <i class="fas fa-envelope"></i>
-        <!-- 💡 Replace with your actual email -->
-        <a href="mailto:xinyiw@upenn.edu">xinyiw@upenn.edu</a>
-      </div>
-      <div class="contact-row">
-        <i class="fas fa-map-marker-alt"></i>
-        <span>Philadelphia, PA</span>
-      </div>
-
-      <!-- 💡 Replace # with your actual profile URLs -->
-      <div class="socials">
-        <a href="#" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-        <a href="#" title="Twitter / X"><i class="fab fa-twitter"></i></a>
-        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-      </div>
-
-      <!-- 💡 Add your CV to assets/files/cv.pdf -->
-      <a href="assets/files/cv.pdf" class="cv-btn" target="_blank">
-        <i class="fas fa-file-pdf"></i>&nbsp; Download CV
-      </a>
-
-    </div>
-  </aside>
-
-  <!-- ════════════════ MAIN CONTENT ════════════════ -->
-  <main class="main">
-
-    <!-- ── About Me ── -->
-    <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">About Me</h2>
-      </div>
-      <div class="about-text">
-        <!-- 💡 Edit this bio to match your own voice -->
-        <p>Hi! I'm Xinyi, a Ph.D. candidate in Communication at the
-          <strong>Annenberg School for Communication, University of Pennsylvania</strong>.
-          My research sits at the intersection of health communication, behavioral science,
-          and computational methods.</p>
-        <p>I study how people seek and process health information — with a focus on
-          <strong>tobacco control</strong>, <strong>health interventions</strong>, and
-          <strong>experience sampling methodology (ESM)</strong>. I hold an M.A. in
-          Statistics and Data Science from the Wharton School and an M.A. and B.A. in
-          Journalism and Mass Communication from the University of Wisconsin-Madison.</p>
-      </div>
-    </section>
-
-    <!-- ── Research Interests ── -->
-    <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">Research Interests</h2>
-      </div>
-      <div class="tags">
-        <!-- 💡 Add/remove tags as needed -->
-        <span class="tag">Health Information Seeking</span>
-        <span class="tag">Tobacco Control</span>
-        <span class="tag">Health Intervention</span>
-        <span class="tag">Experience Sampling</span>
-        <span class="tag">Health Communication</span>
-        <span class="tag">Media Effects</span>
-        <span class="tag">Computational Methods</span>
-        <span class="tag">Survey Research</span>
-      </div>
-    </section>
-
-    <!-- ── News ── -->
-    <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">News</h2>
-      </div>
-      <!-- 💡 Add/remove news items chronologically -->
-      <div class="news-item">
-        <span class="news-date">May 2025</span>
-        <span>🎉 Paper accepted at [Conference Name]!</span>
-      </div>
-      <div class="news-item">
-        <span class="news-date">Jan 2025</span>
-        <span>📄 New working paper submitted on tobacco control messaging.</span>
-      </div>
-      <div class="news-item">
-        <span class="news-date">Sep 2024</span>
-        <span>🏫 Started third year of Ph.D. at UPenn Annenberg.</span>
-      </div>
-      <div class="news-item">
-        <span class="news-date">Jun 2024</span>
-        <span>🗣️ Presented at [Conference Name] in [City].</span>
-      </div>
-    </section>
-
-    <!-- ── Publications ── -->
-    <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">Publications</h2>
-      </div>
-      <!-- 💡 Replace with your actual publications -->
-      <div class="pub-item">
-        <p class="pub-title">Your Paper Title Goes Here</p>
-        <p class="pub-authors"><strong>Xinyi Wang</strong>, Co-Author A, Co-Author B</p>
-        <p class="pub-venue">Journal of Communication, 2024</p>
-        <div class="pub-links">
-          <a href="#">PDF</a>
-          <a href="#">DOI</a>
-          <a href="#">Abstract</a>
-        </div>
-      </div>
-      <div class="pub-item">
-        <p class="pub-title">Another Paper Title Goes Here</p>
-        <p class="pub-authors"><strong>Xinyi Wang</strong>, Co-Author A</p>
-        <p class="pub-venue">Health Communication, 2023</p>
-        <div class="pub-links">
-          <a href="#">PDF</a>
-          <a href="#">DOI</a>
-        </div>
-      </div>
-      <div class="pub-item">
-        <p class="pub-title">A Conference Paper or Working Paper Title</p>
-        <p class="pub-authors"><strong>Xinyi Wang</strong></p>
-        <p class="pub-venue">ICA Annual Conference, 2023</p>
-        <div class="pub-links">
-          <a href="#">Slides</a>
-          <a href="#">Abstract</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Education ── -->
-    <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">Education</h2>
-      </div>
-
-      <div class="edu-item">
-        <div class="edu-icon"><i class="fas fa-university"></i></div>
-        <div class="edu-info">
-          <h4>Ph.D. in Communication</h4>
-          <p>Annenberg School for Communication, University of Pennsylvania</p>
-          <!-- 💡 Update years to match yours -->
-          <span class="edu-year">2022 – Present</span>
-        </div>
-      </div>
-
-      <div class="edu-item">
-        <div class="edu-icon"><i class="fas fa-chart-bar"></i></div>
-        <div class="edu-info">
-          <h4>M.A. in Statistics and Data Science</h4>
-          <p>The Wharton School, University of Pennsylvania</p>
-          <span class="edu-year">2022 – Present</span>
-        </div>
-      </div>
-
-      <div class="edu-item">
-        <div class="edu-icon"><i class="fas fa-newspaper"></i></div>
-        <div class="edu-info">
-          <h4>M.A. in Journalism and Mass Communication</h4>
-          <p>University of Wisconsin-Madison</p>
-          <span class="edu-year">2020 – 2022</span>
-        </div>
-      </div>
-
-      <div class="edu-item">
-        <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
-        <div class="edu-info">
-          <h4>B.A. in Journalism and Mass Communication</h4>
-          <p>University of Wisconsin-Madison</p>
-          <span class="edu-year">2016 – 2020</span>
-        </div>
-      </div>
-
-    </section>
-
-  </main>
-</div>
-
-<!-- ── Back to Top ── -->
-<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  <i class="fas fa-chevron-up"></i>
-</button>
-
-<script>
-  // Show/hide back-to-top button
-  window.addEventListener('scroll', () => {
-    document.getElementById('backToTop')
-      .classList.toggle('show', window.scrollY > 300);
-  });
-</script>
-
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Xinyi Wang | UPenn Annenberg&lt;/title&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Nunito as Avenir fallback for non-Apple devices --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;display=swap" rel="stylesheet"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--green:<span class="Apple-converted-space">      </span>#16a34a;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--green-light:#dcfce7;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--green-mid:<span class="Apple-converted-space">  </span>#bbf7d0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--text: <span class="Apple-converted-space">      </span>#111827;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--muted:<span class="Apple-converted-space">      </span>#6b7280;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--light:<span class="Apple-converted-space">      </span>#f9fafb;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--border: <span class="Apple-converted-space">    </span>#e5e7eb;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--white:<span class="Apple-converted-space">      </span>#ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--radius: <span class="Apple-converted-space">    </span>12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--shadow: <span class="Apple-converted-space">    </span>0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.05);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--nav-h:<span class="Apple-converted-space">      </span>60px;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>/* Avenir font stack — native on Mac/iOS, falls back to Nunito */</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--font: 'Avenir Next', 'Avenir', 'Nunito', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>html { scroll-behavior: smooth; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: var(--font);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.7;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding-top: var(--nav-h);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ── NAVBAR ── */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.navbar {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 0; left: 0; right: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: var(--nav-h);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.96);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(10px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 0 48px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 1000;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.navbar-logo {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.05rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: -0.01em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.navbar-logo span { color: var(--green); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.navbar-links {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>list-style: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.navbar-links a {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 6px 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.88rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 500;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: all 0.18s;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.01em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.navbar-links a:hover { color: var(--text); background: var(--light); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.navbar-links a.active {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--green);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--green-light);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hamburger {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hamburger span {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 22px; height: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.mobile-menu {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: var(--nav-h); left: 0; right: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 12px 24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 999;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.mobile-menu.open { display: flex; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.mobile-menu a {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 500;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.mobile-menu a:hover { background: var(--light); color: var(--text); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ── HERO ── */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 1080px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: stretch;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height: calc(100vh - var(--nav-h));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 0 40px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* LEFT */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-left {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex: 0 0 300px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 60px 48px 60px 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-photo {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 156px; height: 156px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--light);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 2px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex; align-items: center; justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 2.4rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: -0.02em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* 💡 When you have a photo, replace the div above with:</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-photo {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 156px; height: 156px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 2px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-photo img {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%; height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>object-fit: cover; display: block;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-name {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.2rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: -0.02em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-role {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.84rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 400;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.6;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-socials {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-socials a {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 34px; height: 34px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex; align-items: center; justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.88rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: all 0.18s;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-socials a:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--green);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: var(--green-mid);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--green-light);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-btns {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn-solid {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 9px 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: var(--radius);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: var(--font);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.84rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex; align-items: center; justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: opacity 0.18s, transform 0.18s;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.01em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn-solid:hover { opacity: 0.85; transform: translateY(-1px); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn-ghost {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 9px 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: var(--radius);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1.5px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: var(--font);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.84rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex; align-items: center; justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: all 0.18s;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: transparent;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.01em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn-ghost:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--light);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform: translateY(-1px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* VERTICAL DIVIDER */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-divider {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 1px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 60px 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-self: stretch;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* RIGHT */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-right {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 60px 0 60px 60px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 28px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-greeting {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 2.2rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.25;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: -0.03em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-greeting .accent { color: var(--green); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-bio {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.97rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 400;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #374151;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.85;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 560px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-bio strong {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Interests */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.interests-label {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.7rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.12em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tags { display: flex; flex-wrap: wrap; gap: 8px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tag {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 5px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 500;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--light);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #374151;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.01em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tag:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--green-light);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: var(--green-mid);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--green);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ── FOOTER ── */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-top: 1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 24px 48px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 300;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.02em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ── RESPONSIVE ── */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 860px) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero-left { flex: 0 0 260px; padding-right: 36px; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero-right { padding-left: 40px; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero-greeting { font-size: 1.8rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 660px) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.navbar { padding: 0 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.navbar-links { display: none; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hamburger { display: flex; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>min-height: auto;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>padding: 0 24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero-left { flex: none; padding: 48px 0 24px; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero-divider { width: auto; height: 1px; margin: 0; align-self: auto; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero-right { padding: 28px 0 48px; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero-greeting { font-size: 1.6rem; }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>footer { padding: 24px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- NAVBAR --&gt;</p>
+<p class="p1">&lt;nav class="navbar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a class="navbar-logo" href="index.html"&gt;Xinyi &lt;span&gt;Wang&lt;/span&gt;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;ul class="navbar-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;li&gt;&lt;a href="index.html" class="active"&gt;Home&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;li&gt;&lt;a href="news.html"&gt;News&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;li&gt;&lt;a href="publications.html"&gt;Publications&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;li&gt;&lt;a href="education.html"&gt;Education&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button class="hamburger" onclick="toggleMenu()" aria-label="Menu"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/button&gt;</p>
+<p class="p1">&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="mobile-menu" id="mobileMenu"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="index.html"<span class="Apple-converted-space">        </span>onclick="closeMenu()"&gt;Home&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="news.html" <span class="Apple-converted-space">        </span>onclick="closeMenu()"&gt;News&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="publications.html" onclick="closeMenu()"&gt;Publications&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;a href="education.html"<span class="Apple-converted-space">    </span>onclick="closeMenu()"&gt;Education&lt;/a&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- HERO --&gt;</p>
+<p class="p1">&lt;div class="hero"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- LEFT --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hero-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-photo"&gt;XW&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 💡 Replace with photo:</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-photo"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img src="assets/img/avatar.jpg" alt="Xinyi Wang"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt; --&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="hero-name"&gt;Xinyi Wang&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="hero-role"&gt;Ph.D. Candidate in Communication&lt;br&gt;Annenberg School · UPenn&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-socials"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- 💡 Replace # with your real URLs --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#" title="Google Scholar"&gt;&lt;i class="fas fa-graduation-cap"&gt;&lt;/i&gt;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#" title="Twitter / X"&gt;&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#" title="LinkedIn"&gt;&lt;i class="fab fa-linkedin-in"&gt;&lt;/i&gt;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#" title="GitHub"&gt;&lt;i class="fab fa-github"&gt;&lt;/i&gt;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="mailto:xinyiw@upenn.edu" title="Email"&gt;&lt;i class="fas fa-envelope"&gt;&lt;/i&gt;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-btns"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- 💡 Add your CV to assets/files/cv.pdf --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="assets/files/cv.pdf" class="btn-solid" target="_blank"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;i class="fas fa-file-pdf"&gt;&lt;/i&gt; Download CV</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="mailto:xinyiw@upenn.edu" class="btn-ghost"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;i class="fas fa-envelope"&gt;&lt;/i&gt; Contact Me</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- DIVIDER --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hero-divider"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- RIGHT --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hero-right"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1 class="hero-greeting"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>Hi, I'm&lt;br&gt;&lt;span class="accent"&gt;Xinyi Wang&lt;/span&gt; 👋</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/h1&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="hero-bio"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>I'm a Ph.D. candidate in Communication at the</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;strong&gt;Annenberg School for Communication, University of Pennsylvania&lt;/strong&gt;.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>My research sits at the intersection of health communication, behavioral</p>
+<p class="p1"><span class="Apple-converted-space">      </span>science, and computational methods.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>I study how people seek and process health information — with a focus on</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;strong&gt;tobacco control&lt;/strong&gt;, &lt;strong&gt;health interventions&lt;/strong&gt;, and</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;strong&gt;experience sampling methodology (ESM)&lt;/strong&gt;. I also hold an M.A.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>in Statistics and Data Science from the &lt;strong&gt;Wharton School&lt;/strong&gt; and</p>
+<p class="p1"><span class="Apple-converted-space">      </span>an M.A. and B.A. in Journalism from the</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;strong&gt;University of Wisconsin-Madison&lt;/strong&gt;.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="interests-label"&gt;Research Interests&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="tags"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tag"&gt;Health Information Seeking&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tag"&gt;Tobacco Control&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tag"&gt;Health Intervention&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tag"&gt;Experience Sampling&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tag"&gt;Health Communication&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tag"&gt;Media Effects&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tag"&gt;Computational Methods&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tag"&gt;Survey Research&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- FOOTER --&gt;</p>
+<p class="p1">&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>© 2025 Xinyi Wang · Annenberg School for Communication, University of Pennsylvania</p>
+<p class="p1">&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>function toggleMenu() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('mobileMenu').classList.toggle('open');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>function closeMenu() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('mobileMenu').classList.remove('open');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
 </body>
 </html>
