@@ -4,33 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Xinyi Wang | UPenn Annenberg</title>
-
-  <!-- Nunito as Avenir fallback for non-Apple devices -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --green:      #16a34a;
-      --green-light:#dcfce7;
-      --green-mid:  #bbf7d0;
-      --text:       #111827;
-      --muted:      #6b7280;
-      --light:      #f9fafb;
-      --border:     #e5e7eb;
-      --white:      #ffffff;
-      --radius:     12px;
-      --shadow:     0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.05);
-      --nav-h:      60px;
-
-      /* Avenir font stack — native on Mac/iOS, falls back to Nunito */
-      --font: 'Avenir Next', 'Avenir', 'Nunito', sans-serif;
+      --green:       #16a34a;
+      --green-light: #dcfce7;
+      --green-mid:   #bbf7d0;
+      --text:        #111827;
+      --muted:       #6b7280;
+      --light:       #f3f5d8;
+      --border:      #e5e7eb;
+      --white:       #F8FAE1;
+      --radius:      12px;
+      --shadow:      0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.05);
+      --nav-h:       60px;
+      --font:        'Avenir Next', 'Avenir', 'Nunito', sans-serif;
     }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: var(--font);
       background: var(--white);
@@ -39,100 +31,47 @@
       padding-top: var(--nav-h);
     }
 
-    /* ── NAVBAR ── */
+    /* NAVBAR */
     .navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
+      position: fixed; top: 0; left: 0; right: 0;
       height: var(--nav-h);
-      background: rgba(255,255,255,0.96);
+      background: rgba(248,250,225,0.96);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
+      display: flex; align-items: center;
       justify-content: space-between;
-      padding: 0 48px;
-      z-index: 1000;
+      padding: 0 48px; z-index: 1000;
     }
-
     .navbar-logo {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text);
-      text-decoration: none;
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--text); text-decoration: none;
       letter-spacing: -0.01em;
     }
-
     .navbar-logo span { color: var(--green); }
-
-    .navbar-links {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      list-style: none;
-    }
-
+    .navbar-links { display: flex; align-items: center; gap: 2px; list-style: none; }
     .navbar-links a {
-      padding: 6px 14px;
-      border-radius: 8px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--muted);
-      text-decoration: none;
-      transition: all 0.18s;
-      letter-spacing: 0.01em;
+      padding: 6px 14px; border-radius: 8px;
+      font-size: 0.88rem; font-weight: 500;
+      color: var(--muted); text-decoration: none; transition: all 0.18s;
     }
-
     .navbar-links a:hover { color: var(--text); background: var(--light); }
-    .navbar-links a.active {
-      color: var(--green);
-      font-weight: 600;
-      background: var(--green-light);
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-    .hamburger span {
-      display: block;
-      width: 22px; height: 2px;
-      background: var(--text);
-      border-radius: 2px;
-    }
-
+    .navbar-links a.active { color: var(--green); font-weight: 600; background: var(--green-light); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
     .mobile-menu {
-      display: none;
-      position: fixed;
+      display: none; position: fixed;
       top: var(--nav-h); left: 0; right: 0;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 12px 24px;
-      flex-direction: column;
-      gap: 2px;
-      z-index: 999;
+      background: var(--white); border-bottom: 1px solid var(--border);
+      padding: 12px 24px; flex-direction: column; gap: 2px; z-index: 999;
     }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      padding: 10px 12px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--muted);
-      text-decoration: none;
-    }
+    .mobile-menu a { padding: 10px 12px; border-radius: 8px; font-size: 0.9rem; font-weight: 500; color: var(--muted); text-decoration: none; }
     .mobile-menu a:hover { background: var(--light); color: var(--text); }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero {
-      max-width: 1080px;
-      margin: 0 auto;
-      display: flex;
-      align-items: stretch;
+      max-width: 1080px; margin: 0 auto;
+      display: flex; align-items: stretch;
       min-height: calc(100vh - var(--nav-h));
       padding: 0 40px;
     }
@@ -140,219 +79,87 @@
     /* LEFT */
     .hero-left {
       flex: 0 0 300px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 48px 60px 0;
-      gap: 18px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 60px 48px 60px 0; gap: 18px;
     }
-
     .hero-photo {
-      width: 156px; height: 156px;
-      border-radius: 50%;
-      background: var(--light);
-      border: 2px solid var(--border);
+      width: 156px; height: 156px; border-radius: 50%;
+      background: var(--light); border: 2px solid var(--border);
       display: flex; align-items: center; justify-content: center;
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: var(--muted);
+      font-size: 2.4rem; font-weight: 700; color: var(--muted);
       letter-spacing: -0.02em;
     }
-    /* 💡 When you have a photo, replace the div above with:
-    .hero-photo {
-      width: 156px; height: 156px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 2px solid var(--border);
-      flex-shrink: 0;
-    }
-    .hero-photo img {
-      width: 100%; height: 100%;
-      object-fit: cover; display: block;
-    } */
+    /* 💡 Replace with photo:
+    .hero-photo { width:156px; height:156px; border-radius:50%; overflow:hidden; border:2px solid var(--border); flex-shrink:0; }
+    .hero-photo img { width:100%; height:100%; object-fit:cover; display:block; } */
 
-    .hero-name {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text);
-      text-align: center;
-      letter-spacing: -0.02em;
-    }
+    .hero-name { font-size: 1.2rem; font-weight: 700; color: var(--text); text-align: center; letter-spacing: -0.02em; }
+    .hero-role { font-size: 0.84rem; font-weight: 400; color: var(--muted); text-align: center; line-height: 1.6; }
 
-    .hero-role {
-      font-size: 0.84rem;
-      font-weight: 400;
-      color: var(--muted);
-      text-align: center;
-      line-height: 1.6;
-    }
-
-    .hero-socials {
-      display: flex;
-      gap: 8px;
-      justify-content: center;
-    }
-
+    .hero-socials { display: flex; gap: 8px; justify-content: center; }
     .hero-socials a {
-      width: 34px; height: 34px;
-      border-radius: 8px;
+      width: 34px; height: 34px; border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      color: var(--muted);
-      font-size: 0.88rem;
-      text-decoration: none;
-      border: 1px solid var(--border);
-      transition: all 0.18s;
-      background: var(--white);
+      color: var(--muted); font-size: 0.88rem; text-decoration: none;
+      border: 1px solid var(--border); transition: all 0.18s; background: var(--white);
     }
-    .hero-socials a:hover {
-      color: var(--green);
-      border-color: var(--green-mid);
-      background: var(--green-light);
-    }
+    .hero-socials a:hover { color: var(--green); border-color: var(--green-mid); background: var(--green-light); }
 
-    .hero-btns {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      width: 100%;
-    }
-
+    .hero-btns { display: flex; flex-direction: column; gap: 8px; width: 100%; }
     .btn-solid {
-      padding: 9px 16px;
-      border-radius: var(--radius);
-      background: var(--text);
-      color: var(--white);
-      font-family: var(--font);
-      font-size: 0.84rem;
-      font-weight: 600;
-      text-decoration: none;
-      display: flex; align-items: center; justify-content: center;
-      gap: 8px;
-      transition: opacity 0.18s, transform 0.18s;
-      letter-spacing: 0.01em;
+      padding: 9px 16px; border-radius: var(--radius);
+      background: var(--text); color: var(--white);
+      font-family: var(--font); font-size: 0.84rem; font-weight: 600;
+      text-decoration: none; display: flex; align-items: center; justify-content: center;
+      gap: 8px; transition: opacity 0.18s, transform 0.18s; letter-spacing: 0.01em;
     }
     .btn-solid:hover { opacity: 0.85; transform: translateY(-1px); }
-
     .btn-ghost {
-      padding: 9px 16px;
-      border-radius: var(--radius);
-      border: 1.5px solid var(--border);
-      color: var(--text);
-      font-family: var(--font);
-      font-size: 0.84rem;
-      font-weight: 600;
-      text-decoration: none;
-      display: flex; align-items: center; justify-content: center;
-      gap: 8px;
-      transition: all 0.18s;
-      background: transparent;
-      letter-spacing: 0.01em;
+      padding: 9px 16px; border-radius: var(--radius);
+      border: 1.5px solid var(--border); color: var(--text);
+      font-family: var(--font); font-size: 0.84rem; font-weight: 600;
+      text-decoration: none; display: flex; align-items: center; justify-content: center;
+      gap: 8px; transition: all 0.18s; background: transparent; letter-spacing: 0.01em;
     }
-    .btn-ghost:hover {
-      border-color: var(--text);
-      background: var(--light);
-      transform: translateY(-1px);
-    }
+    .btn-ghost:hover { border-color: var(--text); background: var(--light); transform: translateY(-1px); }
 
-    /* VERTICAL DIVIDER */
-    .hero-divider {
-      width: 1px;
-      background: var(--border);
-      margin: 60px 0;
-      flex-shrink: 0;
-      align-self: stretch;
-    }
+    /* DIVIDER */
+    .hero-divider { width: 1px; background: var(--border); margin: 60px 0; flex-shrink: 0; align-self: stretch; }
 
     /* RIGHT */
     .hero-right {
-      flex: 1;
-      padding: 60px 0 60px 60px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 28px;
+      flex: 1; padding: 60px 0 60px 60px;
+      display: flex; flex-direction: column; justify-content: center; gap: 28px;
     }
-
-    .hero-greeting {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.25;
-      letter-spacing: -0.03em;
-    }
-
+    .hero-greeting { font-size: 2.2rem; font-weight: 700; color: var(--text); line-height: 1.25; letter-spacing: -0.03em; }
     .hero-greeting .accent { color: var(--green); }
+    .hero-bio { font-size: 0.97rem; font-weight: 400; color: #374151; line-height: 1.85; max-width: 560px; }
+    .hero-bio strong { font-weight: 600; color: var(--text); }
 
-    .hero-bio {
-      font-size: 0.97rem;
-      font-weight: 400;
-      color: #374151;
-      line-height: 1.85;
-      max-width: 560px;
-    }
-
-    .hero-bio strong {
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    /* Interests */
-    .interests-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
+    .interests-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 10px; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-
     .tag {
-      padding: 5px 12px;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      background: var(--light);
-      color: #374151;
-      border: 1px solid var(--border);
-      letter-spacing: 0.01em;
+      padding: 5px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 500;
+      background: var(--light); color: #374151; border: 1px solid var(--border); letter-spacing: 0.01em;
+      transition: all 0.18s; cursor: default;
     }
+    .tag:hover { background: var(--green-light); border-color: var(--green-mid); color: var(--green); }
 
-    .tag:hover {
-      background: var(--green-light);
-      border-color: var(--green-mid);
-      color: var(--green);
-    }
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 24px 48px; text-align: center; font-size: 0.8rem; font-weight: 300; color: var(--muted); letter-spacing: 0.02em; }
 
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 48px;
-      text-align: center;
-      font-size: 0.8rem;
-      font-weight: 300;
-      color: var(--muted);
-      letter-spacing: 0.02em;
-    }
-
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 860px) {
       .hero-left { flex: 0 0 260px; padding-right: 36px; }
       .hero-right { padding-left: 40px; }
       .hero-greeting { font-size: 1.8rem; }
     }
-
     @media (max-width: 660px) {
       .navbar { padding: 0 20px; }
       .navbar-links { display: none; }
       .hamburger { display: flex; }
-      .hero {
-        flex-direction: column;
-        min-height: auto;
-        padding: 0 24px;
-      }
+      .hero { flex-direction: column; min-height: auto; padding: 0 24px; }
       .hero-left { flex: none; padding: 48px 0 24px; }
       .hero-divider { width: auto; height: 1px; margin: 0; align-self: auto; }
       .hero-right { padding: 28px 0 48px; }
@@ -363,13 +170,13 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar">
   <a class="navbar-logo" href="index.html">Xinyi <span>Wang</span></a>
   <ul class="navbar-links">
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="news.html">News</a></li>
     <li><a href="publications.html">Publications</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
     <li><a href="education.html">Education</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -381,19 +188,15 @@
   <a href="index.html"        onclick="closeMenu()">Home</a>
   <a href="news.html"         onclick="closeMenu()">News</a>
   <a href="publications.html" onclick="closeMenu()">Publications</a>
+  <a href="teaching.html"     onclick="closeMenu()">Teaching</a>
   <a href="education.html"    onclick="closeMenu()">Education</a>
 </div>
 
-<!-- HERO -->
 <div class="hero">
-
-  <!-- LEFT -->
   <div class="hero-left">
     <div class="hero-photo">XW</div>
     <!-- 💡 Replace with photo:
-    <div class="hero-photo">
-      <img src="assets/img/avatar.jpg" alt="Xinyi Wang">
-    </div> -->
+    <div class="hero-photo"><img src="assets/img/avatar.jpg" alt="Xinyi Wang"></div> -->
 
     <div>
       <p class="hero-name">Xinyi Wang</p>
@@ -401,7 +204,6 @@
     </div>
 
     <div class="hero-socials">
-      <!-- 💡 Replace # with your real URLs -->
       <a href="#" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
       <a href="#" title="Twitter / X"><i class="fab fa-twitter"></i></a>
       <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -410,7 +212,6 @@
     </div>
 
     <div class="hero-btns">
-      <!-- 💡 Add your CV to assets/files/cv.pdf -->
       <a href="assets/files/cv.pdf" class="btn-solid" target="_blank">
         <i class="fas fa-file-pdf"></i> Download CV
       </a>
@@ -420,15 +221,10 @@
     </div>
   </div>
 
-  <!-- DIVIDER -->
   <div class="hero-divider"></div>
 
-  <!-- RIGHT -->
   <div class="hero-right">
-
-    <h1 class="hero-greeting">
-      Hi, I'm<br><span class="accent">Xinyi Wang</span> 👋
-    </h1>
+    <h1 class="hero-greeting">Hi, I'm<br><span class="accent">Xinyi Wang</span> 👋</h1>
 
     <p class="hero-bio">
       I'm a Ph.D. candidate in Communication at the
@@ -457,22 +253,14 @@
         <span class="tag">Survey Research</span>
       </div>
     </div>
-
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer>
-  © 2025 Xinyi Wang · Annenberg School for Communication, University of Pennsylvania
-</footer>
+<footer>© 2025 Xinyi Wang · Annenberg School for Communication, University of Pennsylvania</footer>
 
 <script>
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  }
-  function closeMenu() {
-    document.getElementById('mobileMenu').classList.remove('open');
-  }
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  function closeMenu()  { document.getElementById('mobileMenu').classList.remove('open'); }
 </script>
 </body>
 </html>
