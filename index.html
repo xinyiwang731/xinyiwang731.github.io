@@ -6,6 +6,7 @@
   <title>Xinyi Wang | UPenn Annenberg</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -145,7 +146,7 @@
       display: flex; flex-direction: column; justify-content: center; gap: 28px;
     }
     .hero-greeting { font-size: 2.2rem; font-weight: 700; color: var(--text); line-height: 1.25; letter-spacing: -0.03em; }
-    .hero-greeting .accent { color: var(--green); }
+    .hero-greeting .accent { color: #1d4ed8; }
     .hero-bio { font-size: 0.97rem; font-weight: 400; color: #374151; line-height: 1.85; max-width: 560px; }
     .hero-bio strong { font-weight: 600; color: var(--text); }
 
@@ -157,7 +158,10 @@
       border: 1px solid var(--border); letter-spacing: 0.01em; transition: all 0.18s; cursor: default;
     }
     .tag:hover { background: var(--green-light); border-color: var(--green-mid); color: var(--green); }
-
+/* Link colors in bio */
+.hero-bio a { color: #1d4ed8; text-decoration: none; }
+.hero-bio a:hover { color: #1e3a8a; text-decoration: underline; }
+    
     /* FOOTER */
     footer { border-top: 1px solid var(--border); padding: 24px 48px; text-align: center; font-size: 0.8rem; font-weight: 300; color: var(--muted); letter-spacing: 0.02em; }
 
@@ -211,27 +215,32 @@
       <p class="hero-name">Xinyi Wang</p>
       <p class="hero-role">Ph.D. Candidate in Communication<br>Annenberg School · UPenn</p>
     </div>
-    <div class="hero-socials">
-      <a href="#" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-      <a href="#" title="Twitter / X"><i class="fab fa-twitter"></i></a>
-      <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+   <div class="hero-socials">
+  <a href="https://www.linkedin.com/in/xinyi-wang-031451113/" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  <a href="https://github.com/xinyiwang731" title="GitHub"><i class="fab fa-github"></i></a>
+     <!-- 💡 Replace # with your OSF profile URL -->
+  <a href="https://osf.io/w5re2/" title="OSF" target="_blank" rel="noopener"><i class="ai ai-osf"></i></a>
+</div>
       <a href="mailto:xinyiw@upenn.edu" title="Email"><i class="fas fa-envelope"></i></a>
     </div>
     <div class="hero-btns">
-      <a href="assets/files/cv.pdf" class="btn-solid" target="_blank">
-        <i class="fas fa-file-pdf"></i> Download CV
-      </a>
-      <a href="mailto:xinyiw@upenn.edu" class="btn-ghost">
-        <i class="fas fa-envelope"></i> Contact Me
-      </a>
-    </div>
+  <a href="assets/files/cv.pdf" class="btn-solid" target="_blank">
+    <i class="fas fa-file-pdf"></i> Download CV
+  </a>
+  <a href="mailto:xinyi.wang@asc.upenn.edu" class="btn-ghost">
+    <i class="fas fa-envelope"></i> Contact Me
+  </a>
+  <!-- 💡 Replace # with your real Google Scholar URL -->
+  <a href="https://scholar.google.com/citations?user=069Kq20AAAAJ&hl=en" class="btn-ghost" target="_blank" rel="noopener">
+    <i class="fas fa-graduation-cap"></i> Google Scholar
+  </a>
+</div>
   </div>
 
   <div class="hero-divider"></div>
 
   <div class="hero-right">
-  <h1 class="hero-greeting">Hi, I'm<br><span class="accent">Xinyi Wang</span> 👋</h1>
+  <h1 class="hero-greeting"><span class="accent">Xinyi Wang</span></h1>
 
   <p class="hero-bio">
     I'm a <a href="https://www.asc.upenn.edu/people/faculty/xinyi-wang" target="_blank" rel="noopener">Postdoctoral Research Fellow</a> and a 
@@ -240,8 +249,11 @@
     My research sits at the intersection of messaging, information seeking, and curiosity-driven mechanisms.
     <br><br>
     I study how people seek and process information — my research investigates:
+      <br>
     1) how curiosity-driven mechanisms shape health information elaboration and information seeking.
+      <br>
     2) how information elaboration processes can inform the design of message and intervention to enhance persuasion.
+      <br>
     3) how do people seek information in daily life, online, and through AI.
   </p>
 
@@ -265,13 +277,13 @@
       <strong><a href="https://www.asc.upenn.edu/" target="_blank" rel="noopener">the Annenberg School for Communication</a></strong>, University of Pennsylvania
       <br>
       M.A. in Statistics and Data Science from the 
-      <strong>Wharton School</strong>, University of Pennsylvania
+      <strong><a href="https://www.wharton.upenn.edu/" target="_blank" rel="noopener">Wharton School</a></strong>, University of Pennsylvania
       <br>
       M.A. in Journalism and Mass Communication from the 
-      <strong>University of Wisconsin-Madison</strong>
+      <strong><a href="https://sjmc.wisc.edu/" target="_blank" rel="noopener">University of Wisconsin-Madison</a></strong> 
       <br>
       B.A. in Journalism and Mass Communication from the 
-      <strong>University of Wisconsin-Madison</strong>
+      <strong><a href="https://sjmc.wisc.edu/" target="_blank" rel="noopener">University of Wisconsin-Madison</a></strong>
     </p>
   </div>
 
