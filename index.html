@@ -78,7 +78,7 @@
       background: var(--white);
       align-items: stretch;
       margin: 0 auto;
-      max-width: 1200px;
+      max-width: 1600px;
       width: 100%;
     }
 
@@ -129,12 +129,12 @@
       text-align: center;
     }
 
-    .hero-name { font-size: 1.2rem; font-weight: 700; color: var(--text); text-align: center; letter-spacing: -0.02em; }
-    .hero-role { font-size: 0.84rem; font-weight: 400; color: var(--muted); text-align: center; line-height: 1.6; }
+    .hero-name { font-size: 1.3rem; font-weight: 700; color: var(--text); text-align: center; letter-spacing: -0.02em; }
+    .hero-role { font-size: 1.0rem; font-weight: 400; color: var(--muted); text-align: center; line-height: 1.6; }
 
     .hero-socials { display: flex; gap: 8px; justify-content: center; }
     .hero-socials a {
-      width: 34px; height: 34px; border-radius: 8px;
+      width: 42px; height: 42px; border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
       color: var(--muted); font-size: 0.88rem; text-decoration: none;
       border: 1px solid var(--border); transition: all 0.18s;
@@ -203,6 +203,10 @@
       .hero-greeting { font-size: 1.6rem; }
       footer { padding: 24px; }
     }
+     .bio-section-title{
+  color: #3b82f6; /* change to your desired color */
+  font-weight: 600; /* optional */
+}
   </style>
 </head>
 <body>
@@ -272,7 +276,9 @@
       <a href="https://climate.upenn.edu/" target="_blank" rel="noopener"><strong>Penn Climate Fellow<strong></a> at the
       <a href="https://www.upenn.edu/" target="_blank" rel="noopener"><strong>University of Pennsylvania</strong></a>.
       <br>
-      My research investigates:
+      <br>
+      <span class="bio-section-title">My research investigates:</span>
+       
       <br>
       1) how curiosity-driven mechanisms shape health information elaboration and information seeking.
       <br>
@@ -301,21 +307,21 @@
       <p class="interests-label">Education</p>
       <p class="hero-bio">
         Ph.D. in Communication from 
-        <strong><a href="https://www.asc.upenn.edu/" target="_blank" rel="noopener">the Annenberg School for Communication</a></strong>, University of Pennsylvania
+        <a href="https://www.asc.upenn.edu/" target="_blank" rel="noopener"><strong>the Annenberg School for Communication</strong></a>, University of Pennsylvania
         <br>
         M.A. in Statistics and Data Science from the 
-        <strong><a href="https://www.wharton.upenn.edu/" target="_blank" rel="noopener">Wharton School</a></strong>, University of Pennsylvania
+        <a href="https://www.wharton.upenn.edu/" target="_blank" rel="noopener"><strong>Wharton School<strong></a>, University of Pennsylvania
         <br>
         M.A. in Journalism and Mass Communication from the 
-        <strong><a href="https://sjmc.wisc.edu/" target="_blank" rel="noopener">University of Wisconsin-Madison</a></strong> 
+        <a href="https://sjmc.wisc.edu/" target="_blank" rel="noopener"><strong>University of Wisconsin-Madison<strong></a>
         <br>
         B.A. in Journalism and Mass Communication from the 
-        <strong><a href="https://sjmc.wisc.edu/" target="_blank" rel="noopener">University of Wisconsin-Madison</a></strong>
+        <a href="https://sjmc.wisc.edu/" target="_blank" rel="noopener"><strong>University of Wisconsin-Madison<strong></a>
       </p>
     </div>
   </div><!-- end hero-right -->
 </div><!-- end hero -->
-<footer>© 2025 Xinyi Wang · Annenberg School for Communication, University of Pennsylvania</footer>
+<footer>© 2026 Xinyi Wang · Annenberg School for Communication, University of Pennsylvania</footer>
 
 <script>
   function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
