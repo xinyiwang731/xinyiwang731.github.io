@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Xinyi Wang | UPenn Annenberg</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    /* ─────────────── RESET & VARIABLES ─────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:    #2563eb;
+      --secondary:  #7c3aed;
+      --gradient:   linear-gradient(135deg, #2563eb, #7c3aed);
+      --bg:         #f1f5f9;
+      --card:       #ffffff;
+      --text:       #1e293b;
+      --muted:      #64748b;
+      --border:     #e2e8f0;
+      --sidebar-w:  280px;
+      --radius:     16px;
+      --shadow:     0 1px 3px rgba(0,0,0,0.07), 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    /* ─────────────── BODY / DOT-GRID BG ─────────────── */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+      background-size: 26px 26px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ─────────────── LAYOUT ─────────────── */
+    .page {
+      display: flex;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      gap: 36px;
+    }
+
+    /* ─────────────── SIDEBAR ─────────────── */
+    .sidebar {
+      width: var(--sidebar-w);
+      flex-shrink: 0;
+      position: sticky;
+      top: 40px;
+      height: fit-content;
+    }
+
+    .sidebar-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    /* Avatar — swap the placeholder div for an <img> when you have a photo */
+    .avatar-placeholder {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 auto 18px;
+    }
+    /* Uncomment and use this instead once you have a photo:
+    .avatar {
+      width: 120px; height: 120px;
+      border-radius: 50%; object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 3px var(--primary);
+      margin: 0 auto 18px; display: block;
+    } */
+
+    .sidebar h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+    }
+
+    .sidebar .role {
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .sidebar .inst {
+      font-size: 0.80rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .divider { height: 1px; background: var(--border); margin: 14px 0; }
+
+    /* Contact rows */
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+      text-align: left;
+    }
+    .contact-row i { width: 16px; color: var(--primary); }
+    .contact-row a { color: var(--muted); text-decoration: none; }
+    .contact-row a:hover { color: var(--primary); }
+
+    /* Social icons */
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .socials a {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .socials a:hover {
+      background: var(--gradient);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* CV button */
+    .cv-btn {
+      display: block;
+      padding: 10px;
+      border-radius: 10px;
+      background: var(--gradient);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .cv-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ─────────────── MAIN CONTENT ─────────────── */
+    .main { flex: 1; min-width: 0; }
+
+    .section {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-header {
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+    }
+
+    /* ── About ── */
+    .about-text { font-size: 0.95rem; color: var(--text); }
+    .about-text p { margin-bottom: 10px; }
+    .about-text p:last-child { margin-bottom: 0; }
+
+    /* ── Interest tags ── */
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.81rem;
+      font-weight: 500;
+      background: linear-gradient(135deg, rgba(37,99,235,0.08), rgba(124,58,237,0.08));
+      color: var(--primary);
+      border: 1px solid rgba(37,99,235,0.18);
+    }
+
+    /* ── News ── */
+    .news-item {
+      display: flex;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .news-date {
+      min-width: 90px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      padding-top: 2px;
+    }
+
+    /* ── Publications ── */
+    .pub-item {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .pub-item:first-child { padding-top: 0; }
+    .pub-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .pub-title  { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
+    .pub-authors{ font-size: 0.84rem; color: var(--muted); margin-bottom: 3px; }
+    .pub-venue  { font-size: 0.84rem; color: var(--primary); font-style: italic; margin-bottom: 10px; }
+
+    .pub-links a {
+      font-size: 0.76rem;
+      padding: 3px 10px;
+      border-radius: 5px;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      text-decoration: none;
+      margin-right: 6px;
+      transition: all 0.18s;
+    }
+    .pub-links a:hover { background: var(--primary); color: #fff; }
+
+    /* ── Education ── */
+    .edu-item { display: flex; gap: 16px; margin-bottom: 20px; }
+    .edu-item:last-child { margin-bottom: 0; }
+
+    .edu-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(37,99,235,0.1), rgba(124,58,237,0.1));
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary);
+      font-size: 1.05rem;
+    }
+
+    .edu-info h4 { font-size: 0.93rem; font-weight: 600; margin-bottom: 2px; }
+    .edu-info p  { font-size: 0.83rem; color: var(--muted); margin-bottom: 2px; }
+    .edu-year    { font-size: 0.78rem; color: var(--primary); font-weight: 500; }
+
+    /* ─────────────── BACK TO TOP ─────────────── */
+    #backToTop {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--gradient);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 14px rgba(37,99,235,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.2s;
+    }
+    #backToTop.show { opacity: 1; pointer-events: all; }
+    #backToTop:hover { transform: translateY(-3px); }
+
+    /* ─────────────── RESPONSIVE ─────────────── */
+    @media (max-width: 780px) {
+      .page { flex-direction: column; padding: 20px 16px; }
+      .sidebar { width: 100%; position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ════════════════ SIDEBAR ════════════════ -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+
+      <!-- 💡 Replace this div with:
+           <img src="assets/img/avatar.jpg" class="avatar" alt="Xinyi Wang">
+           once you add your photo to assets/img/ -->
+      <div class="avatar-placeholder">XW</div>
+
+      <h1>Xinyi Wang</h1>
+      <p class="role">Ph.D. Candidate in Communication</p>
+      <p class="inst">Annenberg School · University of Pennsylvania</p>
+
+      <div class="divider"></div>
+
+      <div class="contact-row">
+        <i class="fas fa-envelope"></i>
+        <!-- 💡 Replace with your actual email -->
+        <a href="mailto:xinyiw@upenn.edu">xinyiw@upenn.edu</a>
+      </div>
+      <div class="contact-row">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Philadelphia, PA</span>
+      </div>
+
+      <!-- 💡 Replace # with your actual profile URLs -->
+      <div class="socials">
+        <a href="#" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+        <a href="#" title="Twitter / X"><i class="fab fa-twitter"></i></a>
+        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+
+      <!-- 💡 Add your CV to assets/files/cv.pdf -->
+      <a href="assets/files/cv.pdf" class="cv-btn" target="_blank">
+        <i class="fas fa-file-pdf"></i>&nbsp; Download CV
+      </a>
+
+    </div>
+  </aside>
+
+  <!-- ════════════════ MAIN CONTENT ════════════════ -->
+  <main class="main">
+
+    <!-- ── About Me ── -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="about-text">
+        <!-- 💡 Edit this bio to match your own voice -->
+        <p>Hi! I'm Xinyi, a Ph.D. candidate in Communication at the
+          <strong>Annenberg School for Communication, University of Pennsylvania</strong>.
+          My research sits at the intersection of health communication, behavioral science,
+          and computational methods.</p>
+        <p>I study how people seek and process health information — with a focus on
+          <strong>tobacco control</strong>, <strong>health interventions</strong>, and
+          <strong>experience sampling methodology (ESM)</strong>. I hold an M.A. in
+          Statistics and Data Science from the Wharton School and an M.A. and B.A. in
+          Journalism and Mass Communication from the University of Wisconsin-Madison.</p>
+      </div>
+    </section>
+
+    <!-- ── Research Interests ── -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Research Interests</h2>
+      </div>
+      <div class="tags">
+        <!-- 💡 Add/remove tags as needed -->
+        <span class="tag">Health Information Seeking</span>
+        <span class="tag">Tobacco Control</span>
+        <span class="tag">Health Intervention</span>
+        <span class="tag">Experience Sampling</span>
+        <span class="tag">Health Communication</span>
+        <span class="tag">Media Effects</span>
+        <span class="tag">Computational Methods</span>
+        <span class="tag">Survey Research</span>
+      </div>
+    </section>
+
+    <!-- ── News ── -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">News</h2>
+      </div>
+      <!-- 💡 Add/remove news items chronologically -->
+      <div class="news-item">
+        <span class="news-date">May 2025</span>
+        <span>🎉 Paper accepted at [Conference Name]!</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Jan 2025</span>
+        <span>📄 New working paper submitted on tobacco control messaging.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Sep 2024</span>
+        <span>🏫 Started third year of Ph.D. at UPenn Annenberg.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Jun 2024</span>
+        <span>🗣️ Presented at [Conference Name] in [City].</span>
+      </div>
+    </section>
+
+    <!-- ── Publications ── -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Publications</h2>
+      </div>
+      <!-- 💡 Replace with your actual publications -->
+      <div class="pub-item">
+        <p class="pub-title">Your Paper Title Goes Here</p>
+        <p class="pub-authors"><strong>Xinyi Wang</strong>, Co-Author A, Co-Author B</p>
+        <p class="pub-venue">Journal of Communication, 2024</p>
+        <div class="pub-links">
+          <a href="#">PDF</a>
+          <a href="#">DOI</a>
+          <a href="#">Abstract</a>
+        </div>
+      </div>
+      <div class="pub-item">
+        <p class="pub-title">Another Paper Title Goes Here</p>
+        <p class="pub-authors"><strong>Xinyi Wang</strong>, Co-Author A</p>
+        <p class="pub-venue">Health Communication, 2023</p>
+        <div class="pub-links">
+          <a href="#">PDF</a>
+          <a href="#">DOI</a>
+        </div>
+      </div>
+      <div class="pub-item">
+        <p class="pub-title">A Conference Paper or Working Paper Title</p>
+        <p class="pub-authors"><strong>Xinyi Wang</strong></p>
+        <p class="pub-venue">ICA Annual Conference, 2023</p>
+        <div class="pub-links">
+          <a href="#">Slides</a>
+          <a href="#">Abstract</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Education ── -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Education</h2>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-icon"><i class="fas fa-university"></i></div>
+        <div class="edu-info">
+          <h4>Ph.D. in Communication</h4>
+          <p>Annenberg School for Communication, University of Pennsylvania</p>
+          <!-- 💡 Update years to match yours -->
+          <span class="edu-year">2022 – Present</span>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-icon"><i class="fas fa-chart-bar"></i></div>
+        <div class="edu-info">
+          <h4>M.A. in Statistics and Data Science</h4>
+          <p>The Wharton School, University of Pennsylvania</p>
+          <span class="edu-year">2022 – Present</span>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-icon"><i class="fas fa-newspaper"></i></div>
+        <div class="edu-info">
+          <h4>M.A. in Journalism and Mass Communication</h4>
+          <p>University of Wisconsin-Madison</p>
+          <span class="edu-year">2020 – 2022</span>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="edu-info">
+          <h4>B.A. in Journalism and Mass Communication</h4>
+          <p>University of Wisconsin-Madison</p>
+          <span class="edu-year">2016 – 2020</span>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<!-- ── Back to Top ── -->
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<script>
+  // Show/hide back-to-top button
+  window.addEventListener('scroll', () => {
+    document.getElementById('backToTop')
+      .classList.toggle('show', window.scrollY > 300);
+  });
+</script>
+
+</body>
+</html>
