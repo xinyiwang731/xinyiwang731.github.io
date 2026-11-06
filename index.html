@@ -10,14 +10,15 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --green:       #0F766E;
-      --green-light: #CCFBF1;
-      --green-mid:   #99F6E4;
-      --text:        #111827;
-      --muted:       #4B7280;
-      --light:       #D6EDE8;
-      --border:      #C8E3DE;
-      --white:       #E8F5F2;
+      --blue-dark:   #1d4ed8;
+      --blue-light:  #3b82f6;
+      --blue-pale:   #dbeafe;
+      --blue-lighter: #eff6ff;
+      --text:        #1d4ed8;
+      --muted:       #60a5fa;
+      --light:       #dbeafe;
+      --border:      #bfdbfe;
+      --white:       #FFF8F0;
       --radius:      12px;
       --shadow:      0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.05);
       --nav-h:       60px;
@@ -36,7 +37,7 @@
     .navbar {
       position: fixed; top: 0; left: 0; right: 0;
       height: var(--nav-h);
-      background: rgba(232,245,242,0.96);
+      background: rgba(255,248,240,0.96);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       display: flex; align-items: center;
@@ -48,7 +49,7 @@
       color: var(--text); text-decoration: none;
       letter-spacing: -0.01em;
     }
-    .navbar-logo span { color: var(--green); }
+    .navbar-logo span { color: var(--blue-dark); }
     .navbar-links { display: flex; align-items: center; gap: 2px; list-style: none; }
     .navbar-links a {
       padding: 6px 14px; border-radius: 8px;
@@ -56,7 +57,7 @@
       color: var(--muted); text-decoration: none; transition: all 0.18s;
     }
     .navbar-links a:hover { color: var(--text); background: var(--light); }
-    .navbar-links a.active { color: var(--green); font-weight: 600; background: var(--green-light); }
+    .navbar-links a.active { color: var(--blue-dark); font-weight: 600; background: var(--blue-pale); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
     .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
     .mobile-menu {
@@ -70,61 +71,61 @@
     .mobile-menu a:hover { background: var(--light); color: var(--text); }
 
     /* HERO */
- .hero {
-  display: flex;
-  flex-direction: row;
-  min-height: 100vh;
-  background: var(--bg);
-  align-items: stretch;
-}
+    .hero {
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
+      background: var(--white);
+      align-items: stretch;
+      margin: 0 auto;
+      max-width: 1200px;
+      width: 100%;
+    }
 
-.hero-left {
-  width: 300px;
-  padding: 60px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  background: var(--bg);
-}
+    .hero-left {
+      width: 300px;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      background: var(--white);
+    }
 
-.hero-divider {
-  width: 1px;
-  background: var(--border);
-  margin: 40px 0;
-  align-self: stretch;
-}
+    .hero-divider {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+    }
 
-.hero-right {
-  flex: 1;
-  padding: 60px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: var(--bg);
-}
+    .hero-right {
+      flex: 1;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      background: var(--white);
+      max-width: 600px;
+    }
 
-.hero-photo {
-  width: 180px;
-  height: 225px;
-  border-radius: 6px;
-  overflow: hidden;
-  margin-bottom: 30px;
-}
+    .hero-photo {
+      width: 180px;
+      height: 225px;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
 
-.hero-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-.hero-text {
-  text-align: center;
-}
-    /* 💡 Replace with photo:
-    .hero-photo { width:156px; height:156px; border-radius:50%; overflow:hidden; border:2px solid var(--border); flex-shrink:0; }
-    .hero-photo img { width:100%; height:100%; object-fit:cover; display:block; } */
+    .hero-text {
+      text-align: center;
+    }
 
     .hero-name { font-size: 1.2rem; font-weight: 700; color: var(--text); text-align: center; letter-spacing: -0.02em; }
     .hero-role { font-size: 0.84rem; font-weight: 400; color: var(--muted); text-align: center; line-height: 1.6; }
@@ -137,12 +138,12 @@
       border: 1px solid var(--border); transition: all 0.18s;
       background: var(--white);
     }
-    .hero-socials a:hover { color: var(--green); border-color: var(--green-mid); background: var(--green-light); }
+    .hero-socials a:hover { color: var(--blue-dark); border-color: var(--blue-light); background: var(--blue-pale); }
 
     .hero-btns { display: flex; flex-direction: column; gap: 8px; width: 100%; }
     .btn-solid {
       padding: 9px 16px; border-radius: var(--radius);
-      background: var(--text); color: var(--white);
+      background: var(--blue-dark); color: #ffffff;
       font-family: var(--font); font-size: 0.84rem; font-weight: 600;
       text-decoration: none; display: flex; align-items: center;
       justify-content: center; gap: 8px;
@@ -157,33 +158,28 @@
       justify-content: center; gap: 8px;
       transition: all 0.18s; background: transparent; letter-spacing: 0.01em;
     }
-    .btn-ghost:hover { border-color: var(--green); color: var(--green); background: var(--green-light); transform: translateY(-1px); }
+    .btn-ghost:hover { border-color: var(--blue-light); color: var(--blue-dark); background: var(--blue-pale); transform: translateY(-1px); }
 
-    /* DIVIDER */
-    .hero-divider { width: 1px; background: var(--border); margin: 40px 0; flex-shrink: 0; align-self: stretch; }
-    /* RIGHT */
-   .hero-right {
-  flex: 1; padding: 40px 0 40px 60px;
-  display: flex; flex-direction: column;
-  justify-content: center; gap: 24px;
-  overflow-y: auto;
-}
     .hero-greeting { font-size: 2.2rem; font-weight: 700; color: var(--text); line-height: 1.25; letter-spacing: -0.03em; }
-    .hero-greeting .accent { color: #1d4ed8; }
-    .hero-bio { font-size: 0.97rem; font-weight: 400; color: #374151; line-height: 1.85; max-width: 560px; }
+    .hero-greeting .accent { color: var(--blue-dark); }
+    .hero-bio { font-size: 0.97rem; font-weight: 400; color: var(--text); line-height: 1.85; max-width: 560px; }
     .hero-bio strong { font-weight: 600; color: var(--text); }
 
     .interests-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 10px; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .tag {
       padding: 5px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 500;
-      background: var(--light); color: #374151;
+      background: var(--blue-lighter); color: var(--blue-dark);
       border: 1px solid var(--border); letter-spacing: 0.01em; transition: all 0.18s; cursor: default;
     }
-    .tag:hover { background: var(--green-light); border-color: var(--green-mid); color: var(--green); }
-/* Link colors in bio */
-.hero-bio a { color: #1d4ed8; text-decoration: none; }
-.hero-bio a:hover { color: #1e3a8a; text-decoration: underline; }
+    .tag:hover { background: var(--blue-pale); border-color: var(--blue-light); color: var(--blue-dark); }
+    
+    /* Link colors */
+    a { color: var(--blue-dark); text-decoration: none; }
+    a:hover { color: #1e3a8a; text-decoration: underline; }
+    
+    .hero-bio a { color: var(--blue-dark); text-decoration: none; }
+    .hero-bio a:hover { color: #1e3a8a; text-decoration: underline; }
     
     /* FOOTER */
     footer { border-top: 1px solid var(--border); padding: 24px 48px; text-align: center; font-size: 0.8rem; font-weight: 300; color: var(--muted); letter-spacing: 0.02em; }
@@ -206,6 +202,7 @@
   </style>
 </head>
 <body>
+<!-- Rest of HTML stays the same -->
 
 <nav class="navbar">
   <a class="navbar-logo" href="index.html">Xinyi <span>Wang</span></a>
