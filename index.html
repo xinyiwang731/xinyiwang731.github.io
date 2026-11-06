@@ -98,17 +98,19 @@
       align-self: stretch;
     }
 
-    .hero-right {
-      flex: 1;
-      padding: 60px 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      background: var(--white);
-      max-width: 600px;
-    }
+  .hero-right{
+  flex: 1;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background: var(--white);
 
+  /* remove/raise these to allow more width */
+  max-width: none;            /* remove 600px limit if you have it */
+  width: 720px;              /* optional: try 720px */
+}
     .hero-photo {
       width: 180px;
       height: 225px;
@@ -165,7 +167,7 @@
     .hero-bio { font-size: 0.97rem; font-weight: 400; color: var(--text); line-height: 1.85; max-width: 560px; }
     .hero-bio strong { font-weight: 600; color: var(--text); }
 
-    .interests-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 10px; }
+    .interests-label { font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 10px; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .tag {
       padding: 5px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 500;
@@ -232,14 +234,15 @@
     <div class="hero-photo">
       <img src="/assets/img/avatar.jpg" alt="Xinyi Wang">
     </div>
-    <p class="hero-name">Xinyi Wang</p>
-    <p class="hero-role">Ph.D. Candidate in Communication<br>Annenberg School · UPenn</p>
-    
+    <p class="hero-name">Xinyi Wang, PhD</p>
+    <p class="hero-role">Postdoctoral Research Fellow</p>
+    <br>
     <div class="hero-socials">
       <a href="https://www.linkedin.com/in/xinyi-wang-031451113/" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       <a href="https://github.com/xinyiwang731" title="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://osf.io/w5re2/" title="OSF" target="_blank" rel="noopener"><i class="ai ai-osf"></i></a>
     </div>
+    <br>
     <!-- Buttons -->
     <div class="hero-btns">
       <a href="assets/files/cv.pdf" class="btn-solid" target="_blank">
@@ -259,22 +262,24 @@
 
   <!-- RIGHT SIDE: Bio + Info + Buttons -->
   <div class="hero-right">
-    <h1 class="hero-greeting"><span class="accent">My research sits at the intersection of messaging, information seeking, and curiosity-driven mechanisms.
+    <h1 class="hero-greeting"><span class="accent">My research sits at the intersection of message effects, information seeking, and curiosity-driven mechanisms.
       </span></h1>
 
     <p class="hero-bio">
-      I'm a <a href="https://www.asc.upenn.edu/people/faculty/xinyi-wang" target="_blank" rel="noopener">Postdoctoral Research Fellow</a> and a 
-      <a href="https://climate.upenn.edu/" target="_blank" rel="noopener">Penn Climate Fellow</a> at the
+      I'm a <strong><a href="https://www.asc.upenn.edu/people/faculty/xinyi-wang" target="_blank" rel="noopener">Postdoctoral Research Fellow</a><strong> and a 
+      <strong><a href="https://climate.upenn.edu/" target="_blank" rel="noopener">Penn Climate Fellow</a><strong> at the
       <strong>University of Pennsylvania</strong>.
       <br>
-      I study how people seek and process information — my research investigates:
+      My research investigates:
       <br>
       1) how curiosity-driven mechanisms shape health information elaboration and information seeking.
       <br>
-      2) how information elaboration processes can inform the design of message and intervention to enhance persuasion.
+      2) how information elaboration processes can inform the design of messaging to enhance persuasion.
       <br>
       3) how do people seek information in daily life, online, and through AI.
     </p>
+      <br>
+      <br>
 
     <!-- Research Interests -->
     <div>
@@ -287,7 +292,8 @@
         <span class="tag">Network Science</span>
       </div>
     </div>
-
+    <br>
+    <br>
     <!-- Education -->
     <div>
       <p class="interests-label">Education</p>
